@@ -12,13 +12,12 @@ function App() {
         "Commit test"
     ])
 
-    function addItem() {
-        console.log("dd")
+    const addItem = () => {
         setItems(items.concat(inputValue))
         setInputValue("")
     }
 
-    function deleteItem(value) {
+    const deleteItem = (value) => {
         setItems(items.filter((val, index) => (index !== value)))
     }
 
