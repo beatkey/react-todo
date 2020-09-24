@@ -1,0 +1,27 @@
+.App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.list-group {
+    width: 100%;
+    text-align: left;
+}
+
+.list-group > div {
+    display: flex;
+    margin-bottom: 1px;
+}
+
+.list-group > div .list-group-item {
+    width: 100%;
+}
+
+.list-group > div button {
+    border-top-left-radius: initial;
+    border-bottom-left-radius: initial;
+}
