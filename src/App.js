@@ -11,14 +11,31 @@ function App() {
         "Eveeettt!",
         "Commit test"
     ])
+    const [editing, setEditing] = useState(false)
+    const [lastValue, setLastValue] = useState(0)
 
     const addItem = () => {
-        setItems(items.concat(inputValue))
-        setInputValue("")
+        if (inputValue !== "") {
+            if (editing) {
+                items[lastValue] = inputValue
+                setEditing(false)
+            } else {
+                setItems(items.concat(inputValue))
+            }
+            setInputValue("")
+        } else {
+            alert("Please type something!")
+        }
     }
 
     const deleteItem = (value) => {
         setItems(items.filter((val, index) => (index !== value)))
+    }
+
+    const editItem = (value) => {
+        setEditing(true)
+        setLastValue(value)
+        setInputValue(items[value])
     }
 
     return (
@@ -39,8 +56,8 @@ function App() {
                         />
                         <InputGroup.Append>
                             <Button type={"submit"}
-                                    variant="success"
-                                    onClick={() => addItem()}>Add</Button>
+                                    variant={(editing ? "warning" : "success")}
+                                    onClick={() => addItem()}> {editing ? "Edit" : "Add"}</Button>
                         </InputGroup.Append>
                     </InputGroup>
                 </div>
@@ -50,6 +67,7 @@ function App() {
                             items.map((item, value) =>
                                 <div key={value}>
                                     <ListGroup.Item>{value}. {item}</ListGroup.Item>
+                                    <Button variant="warning" onClick={() => editItem(value)}>Edit</Button>
                                     <Button variant="danger" onClick={() => deleteItem(value)}>Delete</Button>
                                 </div>
                             )
