@@ -10,6 +10,8 @@
 .list-group {
     width: 100%;
     text-align: left;
+    max-height: 50vh;
+    overflow: auto;
 }
 
 .list-group > div {
