@@ -8,7 +8,8 @@ function App() {
     const [items, setItems] = useState([
         "React mı? O da ne?",
         "O adamın dibi!",
-        "Eveeettt!"
+        "Eveeettt!",
+        "Commit test"
     ])
 
     function addItem() {
